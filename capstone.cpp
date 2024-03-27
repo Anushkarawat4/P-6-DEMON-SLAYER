@@ -1,10 +1,35 @@
-
 #include <iostream>
 #include <fstream>
 #include <string>
-#include <sstream>
-#include <vector>
+#include <map>
 using namespace std;
+
+void displayClubDescription() {
+    map<string, string> clubMap;
+    ifstream inFile("daiictclubmanager.txt");
+    string line;
+    while (getline(inFile, line)) {
+        if (isdigit(line[0])) {
+            size_t pos = line.find('.');
+            string clubID = line.substr(0, pos);
+            string clubName = line.substr(pos + 1);
+            getline(inFile, line);
+            clubMap[clubName] = line;
+        }
+    }
+    inFile.close();
+    cout << "Enter the name of the club to get its description: ";
+    string inputClubName;
+    getline(cin, inputClubName);
+    auto CN = clubMap.find(inputClubName);
+    if (CN != clubMap.end()) {
+        cout << "Club Description:" << endl;
+        cout << CN->second << endl;
+    } else {
+        cout << "Club not found." << endl;
+    }
+}
+
 int main(){
     cout<<"MENU(TYPE THE NUMBER FOR THE INFORMATION YOU NEED):"<<endl;
     cout<<"1.GET CLUB DESCRIPTION BY CLUB NAME"<<endl;
@@ -25,12 +50,10 @@ int main(){
 
 switch(option) {
             case 1: {
-                string clubName;
-                cout << "Enter Club Name: ";
-                cin >> clubName;
-                displayClubDescriptionbyname(clubName);
+                displayClubDescription();
                 break;
             }
+            /*
             case 2: {
                 string clubID;
                 cout << "Enter Club ID: ";
@@ -39,7 +62,7 @@ switch(option) {
                 break;
             }
             case 3: {
-                displayallclublist();
+                displayMember();
                 break;
             }
             case 4: {
@@ -49,6 +72,7 @@ switch(option) {
                 displayEvents(clubCategory);
                 break;
             }
+            */
             case 5: {
                 string studentID;
                 cout << "Enter Student ID: ";
@@ -105,7 +129,8 @@ switch(option) {
                 break;
             }
         
-    } while (option != 12);
+    } while (option != 13);
 
     return 0;
 }
+

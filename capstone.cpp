@@ -47,6 +47,7 @@ int main(){
     cout<<"13.EXIT MENU"<<endl;
     int option;
     cin>>option;
+    cin.ignore();
 
 switch(option) {
             case 1: {

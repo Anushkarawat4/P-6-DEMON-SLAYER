@@ -117,11 +117,8 @@ switch(option) {
                 // Implement event by date
                 break;
             }
+        
             case 12: {
-                // Go back to the main menu
-                break;
-            }
-            case 13: {
                 cout << "Exiting menu. Goodbye!" << endl;
                 return 0;
             }
@@ -130,8 +127,7 @@ switch(option) {
                 break;
             }
         
-    } while (option != 13);
+    } while (option != 12);
 
     return 0;
 }
-

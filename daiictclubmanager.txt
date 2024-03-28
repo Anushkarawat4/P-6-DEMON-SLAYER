@@ -26,8 +26,8 @@ The Photography and Movie Making Club provides a platform for students intereste
 9.AI CLUB
 The AI Club focuses on artificial intelligence (AI) and machine learning (ML) technologies. Members explore AI-related concepts, algorithms, and applications through workshops, seminars, and hands-on projects.
 
-10.DS CLUB
-The DS (Data Science) Club is dedicated to exploring the interdisciplinary field of data science. Members learn about data analysis, visualization, and machine learning techniques, and apply them to solve real-world problems.
+10.DSC CLUB
+The Google Student Developers Club (GSDC) at Dhirubhai Ambani Institute of Information and Communication Technology (DA-IICT) is a student-led community focused on empowering students to learn, collaborate, and innovate using Google technologies.At GSDC DA-IICT, students have the opportunity to engage in a variety of activities including workshops, coding competitions, tech talks, hackathons, study jams, and networking events. These activities cover a wide range of topics such as web development, mobile app development, machine learning, artificial intelligence, cloud computing, and more.
 
 11.RADIO CLUB 
 The Radio Club operates a campus radio station, providing entertainment, information, and a platform for student voices. Members host shows, interview guests, and broadcast music, news, and discussions to the DAIICT community.

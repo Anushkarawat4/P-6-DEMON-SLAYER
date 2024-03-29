@@ -2,7 +2,7 @@ EVENT LIST ALL YEAR
 SRNO.  EVENTS        DATE      DESCRIPTON
 1.     Waltz         April     dance competition
 2.     Rangmanch     Feburary  drama competition
-3.     Holi	        March     festival celebration
+3.     Holi	   March     festival celebration
 4.     FaceOff       March     coding competition
 5.     Freshers      September cultural event
 6.     Ifest         December  technical fest

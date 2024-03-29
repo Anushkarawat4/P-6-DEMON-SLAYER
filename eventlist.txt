@@ -1,19 +1,19 @@
 EVENT LIST ALL YEAR
 SRNO.  EVENTS        DATE           DESCRIPTON
-1.     Waltz         10th April     dance competition
-2.     Rangmanch     13th Feburary  drama competition
-3.     Holi          25th March     cultural event
-4.     FaceOff       15th March     coding competition
-5.     Freshers      12th September cultural event
-6.     Ifest         18th December  technical fest
-7.     Synapse       16th Feburary  cultural fest
-8.     Tarang        12th October   cultural fest
-9.     Mimic         24th January   music competition
-10.    GamesNight    23rd Feburary  cultural event
-11.    AdForAd       15th January   buisness competition
-12.    AcousticNight 12th January   music event
-13.    Rangoli       19th December  rangoli competition
-14.    Concours      21st November  sports competition
-15.    Garba Night   23rd September cultural event
-16.    TeachersDay   10th September cultural event
-17.    BiddingWars   27th August    buisness competition
+1.     Waltz         10 April     dance competition
+2.     Rangmanch     13 Feburary  drama competition
+3.     Holi          25 March     cultural event
+4.     FaceOff       15 March     coding competition
+5.     Freshers      12 September cultural event
+6.     Ifest         18 December  technical fest
+7.     Synapse       16 Feburary  cultural fest
+8.     Tarang        12 October   cultural fest
+9.     Mimic         24 January   music competition
+10.    GamesNight    23 Feburary  cultural event
+11.    AdForAd       15 January   buisness competition
+12.    AcousticNight 12 January   music event
+13.    Rangoli       19 December  rangoli competition
+14.    Concours      21 November  sports competition
+15.    Garba Night   23 September cultural event
+16.    TeachersDay   10 September cultural event
+17.    BiddingWars   27 August    buisness competition

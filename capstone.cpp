@@ -2,6 +2,8 @@
 #include <fstream>
 #include <string>
 #include <map>
+#include <sstream>
+#include <vector>
 using namespace std;
 
 void displayClubDescription() {
@@ -102,22 +104,80 @@ void clubusingcat(){
     }
     in.close();
 }
+class Event {
+public:
+    int srNo;
+    string eventName;
+    int day;
+    string month;
+    string description;
+};
+
+// Function to display the whole club list
+void displayEventList() {
+    ifstream in("eventlist.txt");
+    string line;
+    while (getline(in, line)) {
+        cout << line << endl;
+    }
+    in.close();
+}
+
+void searchByDateAndMonth() {
+    int searchDay;
+    string searchMonth;
+    cout << "Enter the Date [first input date then month]: ";
+    cin >> searchDay >> searchMonth;
+
+    ifstream infile("eventlist.txt");
+    if (!infile.is_open()) {
+        cerr << "Failed to open the file." << endl;
+        return;
+    }
+
+    // Read events from the file
+    vector<Event> events;
+    string line;
+    while (getline(infile, line)) {
+        stringstream ss(line);
+        Event event;
+        ss >> event.srNo >> event.eventName;
+        ss.ignore(); // ignore the dot
+        ss >> event.day >> event.month;
+        getline(ss, event.description);
+        events.push_back(event);
+    }
+
+    bool found = false;
+    cout << "Events on " << searchDay << " " << searchMonth << ":" << endl;
+    for (const auto& event : events) {
+        if (event.day == searchDay && event.month == searchMonth) {
+            cout << "Event: " << event.eventName << ", Description: " << event.description << endl;
+            found = true;
+        }
+    }
+    if (!found) {
+        cout << "No events found on " << searchDay << " " << searchMonth << endl;
+    }
+    
+    infile.close();
+}
+
 
 int main(){
-    cout<<"MENU(TYPE THE NUMBER FOR THE INFORMATION YOU NEED AND ENTER ALL INFORMATION IN CAPSLOCK):"<<endl;
-    cout<<"1.GET CLUB DESCRIPTION BY CLUB NAME"<<endl;
-    cout<<"2.GET CLUB DESCRIPTION BY CLUB ID"<<endl;
-    cout<<"3.GET WHOLE CLUB LIST"<<endl;
-    cout<<"4.GET CLUB LIST USING CLUB CATAGORIES (A.SCIENCE AND TECHNOLOGY,B.GAME/SPORTS,C.ART,D.CULTURE,E.FINANCE,F.PHOTOGRAPHY AND MEDIA)"<<endl;
-    cout<<"5.SEARCH STUDENT BY STUDENT ID"<<endl;
-    cout<<"6.SEARCH STUDENT BY STUDENT NAME"<<endl;
-    cout<<"7..GET FACULTY LIST OF THE CLUB "<<endl;
-    cout<<"8.GET FACULTY OF THE CLUB BY NAME"<<endl;
-    cout<<"9.GET FACULTY OF CLUB BY FACULTY ID"<<endl;
-    cout<<"10.EVENT LIST"<<endl;
-    cout<<"11.EVENT BY DATE:"<<endl;
-    cout<<"12.GO BACK TO MENU"<<endl;
-    cout<<"13.EXIT MENU"<<endl;
+    cout<<"MENU(TYPE THE NUMBER FOR THE INFORMATION YOU NEED):"<<endl;
+    cout<<"1.ENTER CLUB NAME TO GET ITS DESCRIPTION:"<<endl;
+    cout<<"2.ENTER CLUB ID [1-19] TO GET ITS DESCRIPTION:"<<endl;
+    cout<<"3.GET WHOLE CLUB LIST:"<<endl;
+    cout<<"4.GET CLUB LIST USING CLUB CATAGORIES (A.SCIENCE AND TECHNOLOGY,B.GAME/SPORTS,C.ART,D.CULTURE,E.FINANCE,F.PHOTOGRAPHY AND MEDIA):"<<endl;
+    cout<<"5.ENTER STUDENT ID FOR GETTING STUDENT INFORMATION:"<<endl;
+    cout<<"6.ENTER STUDENT NAME FOR GETTING STUDENT INFORMATION:"<<endl;
+    cout<<"7.GET THE WHOLE FACULTY LIST:"<<endl;
+    cout<<"8.ENTER CLUB NAME TO GET CLUB FACULTY:"<<endl;
+    cout<<"9.ENTER FACULTY ID FOR FACULTY INFORMATION:"<<endl;
+    cout<<"10: WHOLE LIST OF EVENTS:"<<endl;
+    cout<<"11.GIVE EVENTS NAME BY DATE:"<<endl;
+    cout<<"12.EXIT THE MENU:"<<endl;
     int option;
     cin>>option;
     cin.ignore();
@@ -144,55 +204,40 @@ switch(option) {
             }
             
             case 5: {
-                string studentID;
-                cout << "Enter Student ID: ";
-                cin >> studentID;
-                // Implement search by student ID
+             
                 break;
             }
             case 6: {
-                string studentName;
-                cout << "Enter Student Name: ";
-                cin >> studentName;
-                // Implement search by student name
+             
                 break;
             }
             case 7: {
-                string clubName;
-                cout << "Enter Club Name: ";
-                cin >> clubName;
-                // Implement display faculty list of the club
+           
                 break;
             }
             case 8: {
-                string facultyName;
-                cout << "Enter Faculty Name: ";
-                cin >> facultyName;
                
                 break;
             }
             case 9: {
-                string facultyID;
-                cout << "Enter Faculty ID: ";
-                cin >> facultyID;
-                
+   
                 break;
             }
             case 10: {
-            
+            displayEventList();
                 break;
             }
             case 11: {
-            
+            searchByDateAndMonth();
                 break;
             }
         
             case 12: {
-                cout << "Exiting menu. Goodbye!" << endl;
+                cout << "EXITING MENU. THANKS FOR USING." << endl;
                 return 0;
             }
             default: {
-                cout << "Invalid option. Please enter a valid option." << endl;
+                cout << "INVALID OPTION" << endl;
                 break;
             }
         

@@ -65,7 +65,7 @@ SR NO.  STUDENT ID    NAME            ROLE IN CLUB
 
  
 ~EVENT LIST ALL YEAR
-SRNO.  EVENTS     DATE      DESCRIPTON
-1.     Waltz      April     dance competition
+SR NO.  EVENTS     MONTH      DESCRIPTON             CLUB
+1.      Waltz      April     dance competition       DADC
 2.
 

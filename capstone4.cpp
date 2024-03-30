@@ -26,7 +26,18 @@ public:
     int hashfunction(int key) {
         return key % nohashgroups;
     }
-    void insertitem(int key, string value) {
+    void insertitem_number(int key, string value) {
+        int index = hashfunction(key);
+        node* n = new node(key, value);
+        if (table[index] == nullptr) {
+            table[index] = n;
+        }
+        else {
+            n->next = table[index];
+            table[index] = n;
+        }
+    }
+void insertitem_name(string key, string value) {
         int index = hashfunction(key);
         node* n = new node(key, value);
         if (table[index] == nullptr) {

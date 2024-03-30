@@ -172,12 +172,11 @@ int main(){
     cout<<"4.GET CLUB LIST USING CLUB CATAGORIES (A.SCIENCE AND TECHNOLOGY,B.GAME/SPORTS,C.ART,D.CULTURE,E.FINANCE,F.PHOTOGRAPHY AND MEDIA):"<<endl;
     cout<<"5.ENTER STUDENT ID FOR GETTING STUDENT INFORMATION:"<<endl;
     cout<<"6.ENTER STUDENT NAME FOR GETTING STUDENT INFORMATION:"<<endl;
-    cout<<"7.GET THE WHOLE FACULTY LIST:"<<endl;
-    cout<<"8.ENTER CLUB NAME TO GET CLUB FACULTY:"<<endl;
-    cout<<"9.ENTER FACULTY ID FOR FACULTY INFORMATION:"<<endl;
-    cout<<"10: WHOLE LIST OF EVENTS:"<<endl;
-    cout<<"11.GIVE EVENTS NAME BY DATE:"<<endl;
-    cout<<"12.EXIT THE MENU:"<<endl;
+    cout<<"7.ENTER CLUB NAME TO GET CLUB FACULTY:"<<endl;
+    cout<<"8.ENTER FACULTY ID FOR FACULTY INFORMATION:"<<endl;
+    cout<<"9: WHOLE LIST OF EVENTS:"<<endl;
+    cout<<"10.GIVE EVENTS NAME BY DATE:"<<endl;
+    cout<<"11.EXIT THE MENU:"<<endl;
     int option;
     cin>>option;
     cin.ignore();
@@ -212,27 +211,23 @@ switch(option) {
                 break;
             }
             case 7: {
-           
-                break;
-            }
-            case 8: {
                
                 break;
             }
-            case 9: {
+            case 8: {
    
                 break;
             }
-            case 10: {
+            case 9: {
             displayEventList();
                 break;
             }
-            case 11: {
+            case 10: {
             searchByDateAndMonth();
                 break;
             }
         
-            case 12: {
+            case 11: {
                 cout << "EXITING MENU. THANKS FOR USING." << endl;
                 return 0;
             }
@@ -241,7 +236,7 @@ switch(option) {
                 break;
             }
         
-    } while (option != 12);
+    } while (option != 11);
 
     return 0;
 }

@@ -63,6 +63,6 @@ public:
             }
             temp=temp->next;
         }
-        return " ";
+        return "";
     }
 };

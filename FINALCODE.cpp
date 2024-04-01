@@ -136,7 +136,7 @@ void getinfobyclubname(hashtable& a){
         getline(in,facultyname);
         getline(in,id);
         info= facultyname + " " + id;
-        a.insertitem(clubname,info);
+        a.insertdata(clubname,info);
     }
     in.close();
     
@@ -162,7 +162,7 @@ void getinfobyfacultyname(hashtable& a){
         getline(in,facultyname);
         getline(in,id);
         info= clubname + " " + id;
-        a.insertitem(facultyname,info);
+        a.insertdata(facultyname,info);
     }
     in.close();
     
@@ -188,7 +188,7 @@ void getinfobyfacultyid(hashtable& a){
         getline(in,facultyname);
         getline(in,id);
         info= clubname + " " + facultyname;
-        a.insertitem(id,info);
+        a.insertdata(id,info);
     }
     in.close();
     

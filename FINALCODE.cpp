@@ -152,7 +152,12 @@ int main() {
         cout << "ENTER THE NAME FOR THE CLUB IN CAPITAL(EXAMPLE:CHESS CLUB):" << endl;
         getline(cin, club); // Read club name from user
         string description = ht.getitem(club);
+        if(description!=""){
         cout << "DESCRIPTION:" << description << endl;
+        }
+        else{
+            cout<<"CLUB DOES NOT EXIST"<<endl;
+        }
         break;
     }
     case 2: {

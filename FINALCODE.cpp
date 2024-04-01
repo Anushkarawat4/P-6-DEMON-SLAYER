@@ -141,16 +141,16 @@ void getinfobyfacultyid(hashtable& a){
     in.close();
     
     string input;
-    cout<<"Enter Faculty ID to get faculty information: ";
+    cout<<"ENTER FACULTY MENTOR'S ID FOR FACULTY MENTOR INFORMATION : ";
     cin>> input;
     string output = a.getdata(input);
     if(output != "")
     {
-        cout<<"Faculty information is as follows: "<<output<<endl;
+        cout<<"FACULTY INFORMATION IS AS FOLLOWS: "<<output<<endl;
     }
     else
     {
-        cout<<"Faculty ID not found in database"<<endl;
+        cout<<"FACULTY ID NOT FOUND IN DATABASE."<<endl;
     }
 }
 
@@ -162,21 +162,21 @@ void getinfobyfacultyname(hashtable& a){
         getline(in,facultyname);
         getline(in,id);
         info= clubname + " " + id;
-        a.insertitem(facultyname,info);
+        a.insertdata(facultyname,info);
     }
     in.close();
     
     string input;
-    cout<<"Enter Faculty name to get faculty information: ";
+    cout<<"ENTER FACULTY MENTOR'S NAME FOR FACULTY MENTOR INFORMATION: ";
     cin>> input;
     string output = a.getdata(input);
     if(output != "")
     {
-        cout<<"Faculty information is as follows: "<<output<<endl;
+        cout<<"FACULTY INFORMATION IS AS FOLLOWS: "<<output<<endl;
     }
     else
     {
-        cout<<"Faculty name not found in database"<<endl;
+        cout<<"FACULTY NAME NOT FOUND IN DATABASE."<<endl;
     }
 }
 
@@ -188,21 +188,21 @@ void getinfobyclubname(hashtable& a){
         getline(in,facultyname);
         getline(in,id);
         info= facultyname + " " + id;
-        a.insertitem(clubname,info);
+        a.insertdata(clubname,info);
     }
     in.close();
     
     string input;
-    cout<<"Enter club name in capital to get faculty information: ";
+    cout<<"ENTER CLUB NAME IN CAPITAL TO GET FACULTY INFORMATION:  ";
     cin>> input;
     string output = a.getdata(input);
     if(output != "")
     {
-        cout<<"Faculty information is as follows: "<<output<<endl;
+        cout<<"FACULTY INFORMATION IS AS FOLLOWS: "<<output<<endl;
     }
     else
     {
-        cout<<"Club does not exist."<<endl;
+        cout<<"CLUB DOES NOT EXIST."<<endl;
     }
 }
 

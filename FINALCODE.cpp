@@ -256,12 +256,18 @@ int main() {
         break;
     }
     case 7: {
+        hashtable a(19);
+        getinfobyfacultyid(a);
         break;
     }
     case 8: {
+        hashtable b(19);
+        getinfobyclubname(b);
         break;
     }
     case 9: {
+        hashtable c(19);
+        getinfobyfacultyname(c);
         break;
     }
     case 10: {

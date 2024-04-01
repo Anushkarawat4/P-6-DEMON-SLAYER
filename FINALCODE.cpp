@@ -167,7 +167,7 @@ void getinfobyfacultyname(hashtable& a){
     in.close();
     
     string input;
-    cout<<"ENTER FACULTY MENTOR'S NAME FOR FACULTY MENTOR INFORMATION: ";
+    cout<<"ENTER FACULTY MENTOR'S NAME IN CAPITAL FOR FACULTY MENTOR INFORMATION: ";
     cin>> input;
     string output = a.getdata(input);
     if(output != "")

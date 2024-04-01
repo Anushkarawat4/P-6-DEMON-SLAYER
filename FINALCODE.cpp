@@ -42,7 +42,7 @@ public:
             while (temp->next != NULL) {
                 temp = temp->next;
             }
-            temp->next = n; // Set the next pointer of the last node
+            temp->next = n; 
         }
     }
     string getdata(string key) {
@@ -62,12 +62,12 @@ public:
         node* current = table[index];
         while (current != nullptr) {
             if (current->key == key) {
-                return current->datastr; // Return the value corresponding to the key
+                return current->datastr; 
             }
             current = current->next;
         }
         }
-        return ""; // Return empty string if key not found
+        return "";
     }
 };
 
@@ -128,84 +128,6 @@ void clubusingcat(){
     in.close();
 }
 
-void getinfobyfacultyid(hashtable& a){
-    ifstream in("facultymentor.txt");
-    string id, clubname, facultyname,info;
-    while(getline(in,clubname))
-    {
-        getline(in,facultyname);
-        getline(in,id);
-        info= clubname + " " + facultyname;
-        a.insertdata(id,info);
-    }
-    in.close();
-    
-    string input;
-    cout<<"ENTER FACULTY MENTOR'S ID FOR FACULTY MENTOR INFORMATION : ";
-    cin>> input;
-    string output = a.getdata(input);
-    if(output != "")
-    {
-        cout<<"FACULTY INFORMATION IS AS FOLLOWS: "<<output<<endl;
-    }
-    else
-    {
-        cout<<"FACULTY ID NOT FOUND IN DATABASE."<<endl;
-    }
-}
-
-void getinfobyfacultyname(hashtable& a){
-    ifstream in("facultymentor.txt");
-    string id, clubname, facultyname,info;
-    while(getline(in,clubname))
-    {
-        getline(in,facultyname);
-        getline(in,id);
-        info= clubname + " " + id;
-        a.insertdata(facultyname,info);
-    }
-    in.close();
-    
-    string input;
-    cout<<"ENTER FACULTY MENTOR'S NAME IN CAPITAL FOR FACULTY MENTOR INFORMATION: ";
-    cin>> input;
-    string output = a.getdata(input);
-    if(output != "")
-    {
-        cout<<"FACULTY INFORMATION IS AS FOLLOWS: "<<output<<endl;
-    }
-    else
-    {
-        cout<<"FACULTY NAME NOT FOUND IN DATABASE."<<endl;
-    }
-}
-
-void getinfobyclubname(hashtable& a){
-    ifstream in("facultymentor.txt");
-    string id, clubname, facultyname,info;
-    while(getline(in,clubname))
-    {
-        getline(in,facultyname);
-        getline(in,id);
-        info= facultyname + " " + id;
-        a.insertdata(clubname,info);
-    }
-    in.close();
-    
-    string input;
-    cout<<"ENTER CLUB NAME IN CAPITAL TO GET FACULTY INFORMATION:  ";
-    cin>> input;
-    string output = a.getdata(input);
-    if(output != "")
-    {
-        cout<<"FACULTY INFORMATION IS AS FOLLOWS: "<<output<<endl;
-    }
-    else
-    {
-        cout<<"CLUB DOES NOT EXIST."<<endl;
-    }
-}
-
 int main() {
     cout << "MENU[TYPE ALL INFORMATION IN CAPITAL]:" << endl;
     cout << "1.ENTER CLUB NAME TO GET ITS DESCRIPTION:" << endl;
@@ -214,9 +136,9 @@ int main() {
     cout << "4.ENTER STUDENT ID FOR GETTING STUDENT INFORMATION:" << endl;
     cout << "5.ENTER STUDENT NAME FOR GETTING STUDENT INFORMATION" << endl;
     cout << "6.ENTER CLUB NAME TO GET THE STUDENT LIST:" << endl;
-    cout << "7.ENTER FACULTY MENTOR ID FOR FACULTY MENTOR INFORMATION:" << endl;
-    cout << "8.ENTER CLUB NAME TO GET THE FACULTY MENTOR:" << endl;
-    cout << "9.ENTER FACULTY MENTOR NAME TO GET THE CLUB NAME: " << endl;
+    cout << "7.ENTER FACULTY ID FOR FACULTY INFORMATION:" << endl;
+    cout << "8.ENTER CLUB NAME TO GET THE FACULTY:" << endl;
+    cout << "9.ENTER FACULTY NAME TO GET THE CLUB NAME: " << endl;
     cout << "10.EXIT THE MENU:" << endl;
     cout << "ENTER THE NUMBER OF SERVICE YOU WANT" << endl;
     int option;
@@ -228,7 +150,7 @@ int main() {
         displayclubbyclubname(ht);
         string club;
         cout << "ENTER THE NAME FOR THE CLUB IN CAPITAL(EXAMPLE:CHESS CLUB):" << endl;
-        getline(cin, club); // Read club name from user
+        getline(cin, club);
         string description = ht.getitem(club);
         if(description!=""){
         cout << "DESCRIPTION:" << description << endl;
@@ -256,18 +178,12 @@ int main() {
         break;
     }
     case 7: {
-        hashtable a(20);
-        getinfobyfacultyid(a);
         break;
     }
     case 8: {
-        hashtable b(20);
-        getinfobyclubname(b);
         break;
     }
     case 9: {
-        hashtable c(20);
-        getinfobyfacultyname(c);
         break;
     }
     case 10: {

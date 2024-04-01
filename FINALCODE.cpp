@@ -31,7 +31,7 @@ public:
         }
         return sum % numberofhash;
     }
-    int insertdata(string key, string value) {
+    void insertdata(string key, string value) {
         int index = hashfunction(key);
         node* n = new node(key, value);
         if (table[index] == NULL) {

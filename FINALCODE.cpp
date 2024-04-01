@@ -128,6 +128,84 @@ void clubusingcat(){
     in.close();
 }
 
+void getinfobyfacultyid(hashtable& a){
+    ifstream in("facultymentor.txt");
+    string id, clubname, facultyname,info;
+    while(getline(in,clubname))
+    {
+        getline(in,facultyname);
+        getline(in,id);
+        info= clubname + " " + facultyname;
+        a.insertdata(id,info);
+    }
+    in.close();
+    
+    string input;
+    cout<<"Enter Faculty ID to get faculty information: ";
+    cin>> input;
+    string output = a.getdata(input);
+    if(output != "")
+    {
+        cout<<"Faculty information is as follows: "<<output<<endl;
+    }
+    else
+    {
+        cout<<"Faculty ID not found in database"<<endl;
+    }
+}
+
+void getinfobyfacultyname(hashtable& a){
+    ifstream in("facultymentor.txt");
+    string id, clubname, facultyname,info;
+    while(getline(in,clubname))
+    {
+        getline(in,facultyname);
+        getline(in,id);
+        info= clubname + " " + id;
+        a.insertitem(facultyname,info);
+    }
+    in.close();
+    
+    string input;
+    cout<<"Enter Faculty name to get faculty information: ";
+    cin>> input;
+    string output = a.getdata(input);
+    if(output != "")
+    {
+        cout<<"Faculty information is as follows: "<<output<<endl;
+    }
+    else
+    {
+        cout<<"Faculty name not found in database"<<endl;
+    }
+}
+
+void getinfobyclubname(hashtable& a){
+    ifstream in("facultymentor.txt");
+    string id, clubname, facultyname,info;
+    while(getline(in,clubname))
+    {
+        getline(in,facultyname);
+        getline(in,id);
+        info= facultyname + " " + id;
+        a.insertitem(clubname,info);
+    }
+    in.close();
+    
+    string input;
+    cout<<"Enter club name in capital to get faculty information: ";
+    cin>> input;
+    string output = a.getdata(input);
+    if(output != "")
+    {
+        cout<<"Faculty information is as follows: "<<output<<endl;
+    }
+    else
+    {
+        cout<<"Club does not exist."<<endl;
+    }
+}
+
 int main() {
     cout << "MENU[TYPE ALL INFORMATION IN CAPITAL]:" << endl;
     cout << "1.ENTER CLUB NAME TO GET ITS DESCRIPTION:" << endl;
@@ -136,9 +214,9 @@ int main() {
     cout << "4.ENTER STUDENT ID FOR GETTING STUDENT INFORMATION:" << endl;
     cout << "5.ENTER STUDENT NAME FOR GETTING STUDENT INFORMATION" << endl;
     cout << "6.ENTER CLUB NAME TO GET THE STUDENT LIST:" << endl;
-    cout << "7.ENTER FACULTY ID FOR FACULTY INFORMATION:" << endl;
-    cout << "8.ENTER CLUB NAME TO GET THE FACULTY:" << endl;
-    cout << "9.ENTER FACULTY NAME TO GET THE CLUB NAME: " << endl;
+    cout << "7.ENTER FACULTY MENTOR ID FOR FACULTY MENTOR INFORMATION:" << endl;
+    cout << "8.ENTER CLUB NAME TO GET THE FACULTY MENTOR:" << endl;
+    cout << "9.ENTER FACULTY MENTOR NAME TO GET THE CLUB NAME: " << endl;
     cout << "10.EXIT THE MENU:" << endl;
     cout << "ENTER THE NUMBER OF SERVICE YOU WANT" << endl;
     int option;

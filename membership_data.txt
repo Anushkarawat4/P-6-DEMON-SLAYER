@@ -1,0 +1,19 @@
+# Members Section
+[Members]
+ID,Name
+2023001077,RIYA PATEL
+202201156,DIYA PATEL
+202101145,ROHIN SOLANKI
+202101230,KOSHA DALSANIYA
+
+# Memberships Section
+[Memberships]
+Member ID,Club Name,Role (Optional)
+2023001077,Chess Club,Member
+2023001077,Music Club,Member
+202201156,EHC Club,Member
+202201156,Debate Club,Member
+202101145,DTG Club,Convener
+202101145,Debate Club,Member
+202101230,Khailaiya Club,Member
+202101230,Dancr Club,Member

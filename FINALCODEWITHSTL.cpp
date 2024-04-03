@@ -73,82 +73,139 @@ void clubusingcat(){
     }
     in.close();
 }
+void getinfobyclubname(){
+    map<string, string> clubmap;
+    ifstream in("facultymentor.txt");
+    string id, clubname, facultyname,info;
+    while(getline(in,clubname))
+    {
+        getline(in,facultyname);
+        getline(in,id);
+        info= facultyname + " " + id;
+        clubmap[clubname]=info;
+    }
+    in.close();
+    
+    cout <<"ENTER CLUB NAME IN CAPITAL TO GET FACULTY MENTOR INFORMATION: ";
+    string inputclubname;
+    getline(cin, inputclubname);
+    auto CN = clubmap.find(inputclubname);
+    if (CN != clubmap.end()) {
+        cout <<"FACULTY INFORMATION IS AS FOLLOWS:"<< endl;
+        cout << CN->second << endl;
+    } else {
+        cout << "CLUB DOES NOT EXIST."<< endl;
+    }
+}
+
+void getinfobyfacultyname(){
+    map<string, string> clubmap;
+    ifstream in("facultymentor.txt");
+    string id, clubname, facultyname,info;
+    while(getline(in,clubname))
+    {
+        getline(in,facultyname);
+        getline(in,id);
+        info= clubname + " " + id;
+        clubmap[facultyname]=info;
+    }
+    in.close();
+    
+ cout <<"ENTER FACULTY MENTOR'S NAME TO GET FACULTY INFORMATION: ";
+    string inputclubname;
+    getline(cin, inputclubname);
+    auto CN = clubmap.find(inputclubname);
+    if (CN != clubmap.end()) {
+        cout <<"FACULTY INFORMATION IS AS FOLLOWS: "<< endl;
+        cout << CN->second << endl;
+    } else {
+        cout <<"FACULTY NAME NOT FOUND IN DATABASE."<< endl;
+    }
+}
+
+void getinfobyfacultyid(){
+     map<string, string> clubmap;
+    ifstream in("facultymentor.txt");
+    string id, clubname, facultyname,info;
+    while(getline(in,clubname))
+    {
+        getline(in,facultyname);
+        getline(in,id);
+        info= clubname + " " + facultyname;
+        clubmap[id]=info;
+    }
+    in.close();
+    
+ cout <<"ENTER FACULTY MENTOR'S ID TO GET FACULTY INFORMATION: ";
+    string inputclubname;
+    getline(cin, inputclubname);
+    auto CN = clubmap.find(inputclubname);
+    if (CN != clubmap.end()) {
+        cout <<"FACULTY INFORMATION IS AS FOLLOWS: "<< endl;
+        cout << CN->second << endl;
+    } else {
+        cout <<"FACULTY ID NOT FOUND IN DATABASE."<< endl;
+    }
+}
 
 
 
-int main(){
-    cout<<"MENU(TYPE THE NUMBER FOR THE INFORMATION YOU NEED):"<<endl;
-    cout<<"1.ENTER CLUB NAME TO GET ITS DESCRIPTION:"<<endl;
-    cout<<"2.ENTER CLUB ID [1-19] TO GET ITS DESCRIPTION:"<<endl;
-    cout<<"3.GET WHOLE CLUB LIST:"<<endl;
-    cout<<"4.GET CLUB LIST USING CLUB CATAGORIES (A.SCIENCE AND TECHNOLOGY,B.GAME/SPORTS,C.ART,D.CULTURE,E.FINANCE,F.PHOTOGRAPHY AND MEDIA):"<<endl;
-    cout<<"5.ENTER STUDENT ID FOR GETTING STUDENT INFORMATION:"<<endl;
-    cout<<"6.ENTER STUDENT NAME FOR GETTING STUDENT INFORMATION:"<<endl;
-    cout<<"7.ENTER CLUB NAME TO GET CLUB FACULTY:"<<endl;
-    cout<<"8.ENTER FACULTY ID FOR FACULTY INFORMATION:"<<endl;
-    cout<<"9: WHOLE LIST OF EVENTS:"<<endl;
-    cout<<"10.GIVE EVENTS NAME BY DATE:"<<endl;
-    cout<<"11.EXIT THE MENU:"<<endl;
+int main() {
+    cout << "MENU[TYPE ALL INFORMATION IN CAPITAL]:" << endl;
+    cout << "1.ENTER CLUB NAME TO GET ITS DESCRIPTION:" << endl;
+    cout << "2.GET WHOLE CLUB LIST:" << endl;
+    cout << "3.GET CLUB LIST USING CLUB CATAGORIES (A.SCIENCE AND TECHNOLOGY,B.GAME/SPORTS,C.ART,D.CULTURE,E.FINANCE,F.PHOTOGRAPHY AND MEDIA):" << endl;
+    cout << "4.ENTER STUDENT ID FOR GETTING STUDENT INFORMATION:" << endl;
+    cout << "5.ENTER STUDENT NAME FOR GETTING STUDENT INFORMATION" << endl;
+    cout << "6.ENTER CLUB NAME TO GET THE STUDENT LIST:" << endl;
+    cout << "7.ENTER FACULTY ID FOR FACULTY INFORMATION:" << endl;
+    cout << "8.ENTER CLUB NAME TO GET THE FACULTY:" << endl;
+    cout << "9.ENTER FACULTY NAME TO GET THE CLUB NAME: " << endl;
+    cout << "10.EXIT THE MENU:" << endl;
+    cout << "ENTER THE NUMBER OF SERVICE YOU WANT" << endl;
     int option;
-    cin>>option;
+    cin >> option;
     cin.ignore();
-
-switch(option) {
-            case 1: {
-                displayClubDescription();
-                break;
-            }
-            
-            case 2: {
-             
-                break;
-            }
-            
-            case 3: {
-                 displayClubDescription();
-                break;
-            }
-        
-            case 4: {
-                clubusingcat();
-                break;
-            }
-            
-            case 5: {
-             
-                break;
-            }
-            case 6: {
-             
-                break;
-            }
-            case 7: {
-               
-                break;
-            }
-            case 8: {
-   
-                break;
-            }
-            case 9: {
-          
-                break;
-            }
-            case 10: {
-        
-                break;
-            }
-        
-            case 11: {
-                cout << "EXITING MENU. THANKS FOR USING." << endl;
-                return 0;
-            }
-            default: {
-                cout << "INVALID OPTION" << endl;
-                break;
-            }
-        
-    } while (option != 11);
+    switch (option) {
+    case 1: {
+        displayClubDescription() ;
+        break;
+    
+    }
+    case 2: {
+        diplayclublist();
+        break;
+    }
+    case 3: {
+        clubusingcat();
+        break;
+    }
+    case 4: {
+        break;
+    }
+    case 5: {
+        break;
+    }
+    case 6: {
+        break;
+    }
+    case 7: {
+        getinfobyfacultyname();
+        break;
+    }
+    case 8: {
+        getinfobyclubname();
+        break;
+    }
+    case 9: {
+        getinfobyfacultyname();
+        break;
+    }
+    case 10: {
+        cout << "EXITING MENU. THANKS FOR USING THE SERVICE" << endl;
+        break;
+    }
+    }
 
     return 0;
 }

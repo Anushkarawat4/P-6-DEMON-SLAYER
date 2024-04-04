@@ -39,14 +39,15 @@ public:
         }
     }
 
-    void calculateFundsDistribution(long long totalMoney) {
-        node* temp = head;
-        while (temp != NULL) {
-            double fundsDistribution = (5 * temp->largescaleevents) + (3 * temp->mediumscaleevents) + (1.5 * temp->smallscaleevents) + (0.5 * temp->competitionbonus);
-            cout << "Club: " << temp->clubname << ", Funds Distribution: " << (fundsDistribution * totalMoney) << endl;
-            temp = temp->next;
-        }
+  void calculateFundsDistribution(long long totalMoney) {
+    node* temp = head;
+    while (temp != NULL) {
+        double fundsDistribution = (5 * temp->largescaleevents) + (3 * temp->mediumscaleevents) + (1.5 * temp->smallscaleevents) + (0.5 * temp->competitionbonus);
+        cout << "Club: " << temp->clubname << ", Funds Distribution: " << (fundsDistribution / 10.0 * totalMoney) << endl;
+        temp = temp->next;
     }
+}
+
 };
 
 int main() {

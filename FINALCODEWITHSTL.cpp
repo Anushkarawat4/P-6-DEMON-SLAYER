@@ -2,7 +2,95 @@
 #include <fstream>
 #include <string>
 #include <map>
+#include <vector>
+#include <unordered_map>
+#include <sstream>
 using namespace std;
+
+void readstudent_info(unordered_map<int, string>& s_names, unordered_map<string, int>& s_ids) {
+    ifstream infile("membership_data.txt");
+    string line;
+
+    while (getline(infile, line) && line != "[Members]") {}
+
+    // Read member data
+    while (getline(infile, line) && line != "") {
+        // Check if the line contains specific keywords to skip
+        if (line.find("ID,Name") != string::npos) continue;
+
+        stringstream ss(line);
+        int id;
+        string name;
+        if (ss >> id >> ws && getline(ss, name)) {
+            s_names[id] = name;
+            s_ids[name] = id;  
+        } else {
+            cerr << "Error reading line: " << line << endl;
+        }
+    }
+    infile.close();
+}
+void read_stuMemberships(unordered_map<int, vector<string>>& s_membership) {
+    ifstream infile("membership_data.txt");
+    string line;
+
+    // Skip lines until the [Memberships] section
+    while (getline(infile, line) && line != "[Memberships]") {}
+
+    // Read membership data
+    while (getline(infile, line) && line != "") {
+        // Check if the line contains specific keywords to skip
+        if (line.find("Member ID,Club Name,Role (Optional)") != string::npos) continue;
+
+        stringstream ss(line);
+        int id;
+        string club_name, role;
+        if (ss >> id >> club_name >> role) {
+            s_membership[id].push_back(club_name + " (" + role + ")");
+        } else {
+            cerr << "Error reading line: " << line << endl;
+        }
+    }
+    infile.close();
+}
+void searchStudentByID(const unordered_map<int, string>& s_names, const unordered_map<int, vector<string>>& s_membership, int id) {
+    auto name_iter = s_names.find(id);
+    auto membership_iter = s_membership.find(id);
+
+    if (name_iter != s_names.end()) {
+        cout << "Student found:" << endl;
+        cout << "ID: " << id << endl;
+        cout << "Name: " << name_iter->second << endl;
+        if (membership_iter != s_membership.end()) {
+            cout << "Memberships:" << endl;
+            for (const string& membership : membership_iter->second) {
+                cout << membership << endl;
+            }
+        } else {
+            cout << "No memberships found." << endl;
+        }
+    } else {
+        cout << "Student with ID " << id << " not found." << endl;
+    }
+}
+void searchStudentByName(const unordered_map<int, string>& s_names, const unordered_map<int, vector<string>>& s_membership, const unordered_map<string, int>& s_ids, const string& name) {
+    bool found = false;
+    for (const auto& student : s_names) {
+        if (student.second.find(name) != string::npos) {
+            int id = student.first;
+            searchStudentByID(s_names, s_membership, id);
+            found = true;
+            break;
+        }
+    }
+    if (!found) {
+        cout << "Student with name " << name << " not found." << endl;
+    }
+}
+
+
+
+
 
 void displayClubDescription() {
     map<string, string> clubmap;
@@ -151,6 +239,14 @@ void getinfobyfacultyid(){
 
 
 int main() {
+  unordered_map<int, string> s_names;
+    unordered_map<int, vector<string>> s_memberships;
+    unordered_map<string, int> s_ids;  // Map to store student names with their IDs
+    
+
+  
+    readstudent_info(s_names, s_ids);
+    read_stuMemberships(s_memberships);
     cout << "MENU[TYPE ALL INFORMATION IN CAPITAL]:" << endl;
     cout << "1.ENTER CLUB NAME TO GET ITS DESCRIPTION:" << endl;
     cout << "2.GET WHOLE CLUB LIST:" << endl;
@@ -181,12 +277,23 @@ int main() {
         break;
     }
     case 4: {
+        int sid;
+            cout << "Enter student ID: ";
+            cin >> sid;
+            cin.ignore();
+            searchStudentByID(s_names, s_memberships, sid);
         break;
     }
     case 5: {
+        string sname;
+            cout << "Enter student name: ";
+            getline(cin, sname);
+            searchStudentByName(s_names, s_memberships, s_ids, sname);
+            break;
         break;
     }
     case 6: {
+        
         break;
     }
     case 7: {

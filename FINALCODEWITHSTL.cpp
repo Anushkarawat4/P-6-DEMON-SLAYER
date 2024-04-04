@@ -235,6 +235,40 @@ void getinfobyfacultyid(){
         cout <<"FACULTY ID NOT FOUND IN DATABASE."<< endl;
     }
 }
+void studentlist_byclub(const unordered_map<int, string>& s_names, const string& club_name) {
+    ifstream infile("student_data_club.txt");
+    string line;
+    bool found = false;
+
+    while (getline(infile, line)) {
+        if (line == ("#" + club_name)) {
+            found = true;
+            cout << "Student list for club '" << club_name << "':" << endl;
+            cout << "->" << endl;
+            while (getline(infile, line) && !line.empty()) {
+                cout << "-> " << line << endl;
+                size_t comma_pos = line.find(",");
+                if (comma_pos != string::npos) {
+                    string student_info = line.substr(comma_pos + 1);
+                    int student_id = stoi(student_info.substr(student_info.find("ID") + 3));
+                    string student_name = line.substr(0, comma_pos);
+                    auto student_iter = s_names.find(student_id);
+                    if (student_iter != s_names.end()) {
+                        cout << "Student ID: " << student_id << ", Student Name: " << student_name << endl;
+                    }
+                }
+            }
+            break;
+        }
+    }
+
+    infile.close();
+
+    if (!found) {
+        cout << "Club '" << club_name << "' not found or has no members." << endl;
+    }
+}
+
 
 
 
@@ -293,7 +327,11 @@ int main() {
         break;
     }
     case 6: {
-        
+        string club_name;
+            cout << "Enter the name of the club to get the student list: (enter the club name as shown in the club list)";
+            getline(cin, club_name);
+            studentlist_byclub(s_names, club_name);
+            
         break;
     }
     case 7: {

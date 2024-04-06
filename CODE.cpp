@@ -161,30 +161,38 @@ void clubusingcat(){
     }
     in.close();
 }
-void getinfobyclubname(){
+void getinfobyclubname() {
     map<string, string> clubmap;
     ifstream in("facultymentor.txt");
-    string id, clubname, facultyname,info;
-    while(getline(in,clubname))
-    {
-        getline(in,facultyname);
-        getline(in,id);
-        info= facultyname + " " + id;
-        clubmap[clubname]=info;
+    string clubname, facultyname, id, info;
+    if (!in.is_open()) {
+        cout << "Error opening file 'facultymentor.txt'" << endl;
+        return;
+    }
+
+    while (getline(in, clubname)) {
+        getline(in, facultyname);
+        getline(in, id);
+        info = facultyname + " " + id;
+        clubmap[clubname] = info;
     }
     in.close();
-    
-    cout <<"ENTER CLUB NAME IN CAPITAL TO GET FACULTY MENTOR INFORMATION: ";
+
+
+    cout << "ENTER CLUB NAME IN CAPITAL TO GET FACULTY MENTOR INFORMATION: ";
     string inputclubname;
     getline(cin, inputclubname);
+
+
     auto CN = clubmap.find(inputclubname);
     if (CN != clubmap.end()) {
-        cout <<"FACULTY INFORMATION IS AS FOLLOWS:"<< endl;
+        cout << "FACULTY INFORMATION IS AS FOLLOWS:" << endl;
         cout << CN->second << endl;
     } else {
-        cout << "CLUB DOES NOT EXIST."<< endl;
+        cout << "CLUB NAME NOT FOUND IN DATABASE." << endl;
     }
 }
+
 
 void getinfobyfacultyname(){
     map<string, string> clubmap;
@@ -236,7 +244,7 @@ void getinfobyfacultyid(){
     }
 }
 void studentlist_byclub(const unordered_map<int, string>& s_names, const string& club_name) {
-    ifstream infile("student_data_club.txt");
+    ifstream infile("student_dataclub.txt");
     string line;
     bool found = false;
 
@@ -269,16 +277,10 @@ void studentlist_byclub(const unordered_map<int, string>& s_names, const string&
     }
 }
 
-
-
-
 int main() {
   unordered_map<int, string> s_names;
     unordered_map<int, vector<string>> s_memberships;
     unordered_map<string, int> s_ids;  // Map to store student names with their IDs
-    
-
-  
     readstudent_info(s_names, s_ids);
     read_stuMemberships(s_memberships);
     cout << "MENU[TYPE ALL INFORMATION IN CAPITAL]:" << endl;
@@ -335,7 +337,7 @@ int main() {
         break;
     }
     case 7: {
-        getinfobyfacultyname();
+        getinfobyfacultyid();
         break;
     }
     case 8: {

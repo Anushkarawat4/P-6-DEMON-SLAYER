@@ -95,7 +95,7 @@ public:
         ClubFundsDistribution a;
         a.addClub();
         int totalmoney;
-        cout<<"GIVE THE TOTAL MONEY"<<endl;
+        cout<<"ENTER THE TOTAL MONEY: "<<endl;
         cin>>totalmoney;
         a.distribute(totalmoney);
         a.calculate();

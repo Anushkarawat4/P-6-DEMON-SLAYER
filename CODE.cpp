@@ -1,7 +1,6 @@
 #include <iostream>
 #include <fstream>
 #include <string>
-#include <map>
 #include <vector>
 #include <unordered_map>
 #include <sstream>
@@ -93,7 +92,7 @@ void searchStudentByName(const unordered_map<int, string>& s_names, const unorde
 
 
 void displayClubDescription() {
-    map<string, string> clubmap;
+    unordered_map<string, string> clubmap;
    ifstream in("daiictclubmanager.txt");
     string clubname, description,line;
     while (getline(in, clubname)) {
@@ -162,7 +161,7 @@ void clubusingcat(){
     in.close();
 }
 void getinfobyclubname() {
-    map<string, string> clubmap;
+    unordered_map<string, string> clubmap;
     ifstream in("facultymentor.txt");
     string clubname, facultyname, id, info;
     if (!in.is_open()) {
@@ -195,7 +194,7 @@ void getinfobyclubname() {
 
 
 void getinfobyfacultyname(){
-    map<string, string> clubmap;
+    unordered_map<string, string> clubmap;
     ifstream in("facultymentor.txt");
     string id, clubname, facultyname,info;
     while(getline(in,clubname))
@@ -220,7 +219,7 @@ void getinfobyfacultyname(){
 }
 
 void getinfobyfacultyid(){
-     map<string, string> clubmap;
+     unordered_map<string, string> clubmap;
     ifstream in("facultymentor.txt");
     string id, clubname, facultyname,info;
     while(getline(in,clubname))

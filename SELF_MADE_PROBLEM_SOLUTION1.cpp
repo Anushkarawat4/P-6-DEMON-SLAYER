@@ -41,7 +41,7 @@ public:
 
             // Distribute total money for clubs equally among clubs
             clubMap[clubName] = totalMoneyForClubs + (reservedMoney / 19);
-            cout<<"MONEY DISTRIBUITION FOR ALL CLUBS"<<endl;
+            cout<<"MONEY DISTRIBUTION FOR ALL CLUBS"<<endl;
             cout << clubName << "~" << clubMap[clubName] << endl;
         }
 
@@ -68,7 +68,7 @@ public:
 int main() {
     MoneyDivider md;
     float totalMoney;
-    cout<<"INPUT THE TOTAL AMOUNT OF MONEY TO BE DISTRIBUITED:"<<endl;
+    cout<<"INPUT THE TOTAL AMOUNT OF MONEY TO BE DISTRIBUTED:"<<endl;
     cin>>totalMoney; 
     auto clubMap = md.moneyDistribution(totalMoney);
 

@@ -115,7 +115,7 @@ void displayClubDescription() {
     }
 
 
-void diplayclublist(){
+void displayclublist(){
     ifstream in("daiictclubmanager.txt");
     string clubname, description,line;
     for(int i =1 ; i<=19;i++){
@@ -301,7 +301,7 @@ int main() {
     
     }
     case 2: {
-        diplayclublist();
+        displayclublist();
         break;
     }
     case 3: {

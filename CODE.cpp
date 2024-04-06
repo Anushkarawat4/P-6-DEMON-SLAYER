@@ -282,6 +282,8 @@ int main() {
     unordered_map<string, int> s_ids;  // Map to store student names with their IDs
     readstudent_info(s_names, s_ids);
     read_stuMemberships(s_memberships);
+    int option;
+    while(option!=10){
     cout << "MENU[TYPE ALL INFORMATION IN CAPITAL]:" << endl;
     cout << "1.ENTER CLUB NAME TO GET ITS DESCRIPTION:" << endl;
     cout << "2.GET WHOLE CLUB LIST:" << endl;
@@ -294,7 +296,6 @@ int main() {
     cout << "9.ENTER FACULTY NAME TO GET THE CLUB NAME: " << endl;
     cout << "10.EXIT THE MENU:" << endl;
     cout << "ENTER THE NUMBER OF SERVICE YOU WANT" << endl;
-    int option;
     cin >> option;
     cin.ignore();
     switch (option) {
@@ -350,6 +351,7 @@ int main() {
     case 10: {
         cout << "EXITING MENU. THANKS FOR USING THE SERVICE" << endl;
         break;
+    }
     }
     }
 

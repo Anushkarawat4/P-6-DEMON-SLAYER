@@ -164,10 +164,6 @@ void getinfobyclubname() {
     unordered_map<string, string> clubmap;
     ifstream in("facultymentor.txt");
     string clubname, facultyname, id, info;
-    if (!in.is_open()) {
-        cout << "Error opening file 'facultymentor.txt'" << endl;
-        return;
-    }
 
     while (getline(in, clubname)) {
         getline(in, facultyname);

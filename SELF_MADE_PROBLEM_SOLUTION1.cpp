@@ -1,3 +1,4 @@
+//SOLUTION BY MAKING A UNTRADITIONAL DATA STRUCTURE NAMED MONEYDIVIDER
 #include <iostream>
 #include <fstream>
 #include <string>

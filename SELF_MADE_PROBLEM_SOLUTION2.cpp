@@ -53,12 +53,18 @@ public:
         getline(in,b);
         float bonus=stof(b);
         node* newNode = new node(name, large, medium, small, bonus);
-        if (head == NULL) {
-            head = newNode;
-        } 
-        else {
-            newNode->next = head;
-            head = newNode;
+        if(head==NULL)
+        {
+           head=newNode;
+        }
+        else
+        {
+           node* temp=head;
+           while(temp->next!=NULL)
+              {
+                 temp=temp->next;
+              }
+            temp->next=newNode;
         }
         noofclubs++;
     }

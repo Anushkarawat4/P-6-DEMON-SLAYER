@@ -1,1 +1,0 @@
-PROBLEM STATEMENT: make a money divider system for dividing money between clubs

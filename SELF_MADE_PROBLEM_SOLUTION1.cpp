@@ -17,7 +17,7 @@ public:
         }
 
         string clubName, ls, ms, ss, cb;
-
+       cout<<"MONEY DISTRIBUTION FOR ALL CLUBS"<<endl;
         while (getline(in, clubName)) {
             if (!getline(in, ls) || !getline(in, ms) || !getline(in, ss) || !getline(in, cb)) {
                 cerr << "Error reading data for club: " << clubName << endl;
@@ -41,7 +41,7 @@ public:
 
             // Distribute total money for clubs equally among clubs
             clubMap[clubName] = totalMoneyForClubs + (reservedMoney / 19);
-            cout<<"MONEY DISTRIBUTION FOR ALL CLUBS"<<endl;
+            
             cout << clubName << "~" << clubMap[clubName] << endl;
         }
 

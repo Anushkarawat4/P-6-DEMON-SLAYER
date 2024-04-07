@@ -1,6 +1,6 @@
 Self Problem Statement:
 
-Design a money distribution system for 19 clubs at DAIICT, where funds are allocated among the clubs based on four factors: the number of large-scale events (weight: 5), medium-scale events (weight: 3), small-scale events (weight: 1.5), and competition bonus (weight: 0.5). Additionally, each club should receive at least 30% of the total funds divided by the number of clubs.Read data from a input file. Each club's data should include the number of large-scale events, medium-scale events, small-scale events, and competition bonus.
+Design a money distribution system for 19 clubs at DAIICT, where funds are allocated among the clubs based on four factors: the number of large-scale events (weight: 5), medium-scale events (weight: 3), small-scale events (weight: 1.5), and competition bonus (weight: 0.5). Additionally, each club will recieve a fixed amount of money.30% of the total funds is reserved for the fixed amount. Read data from a input file. Each club's data should include the number of large-scale events, medium-scale events, small-scale events, and competition bonus.
 
 
 
